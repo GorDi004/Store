@@ -1,0 +1,64 @@
+.main{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+    .tabs {
+        list-style-type: none;
+        display: flex;
+        li{
+            padding:0 2em;
+            font-size: 21px;
+            font-weight:100;
+            cursor: pointer;
+            transition: opacity 500ms ease;
+        }
+        :hover{
+            opacity: 0.5;
+        }
+        .special{
+            padding-right:0;
+        }
+    }
+}
+.box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.shoppingCart{
+    width: 1.5rem;
+    height:1.5rem;
+    &:hover, &:active{
+        color:#bb0000;
+    }
+}
+.active {
+    color: red;
+}
+.image{
+    background-image: url('https://images.photowall.com/interiors/65231/landscape/wallpaper/room40.jpg?w=2000&q=80');
+    width:auto;
+    height:30rem;
+    background-size: cover;
+    object-fit: cover;
+    .title{
+        padding:4rem 5rem;
+        width:50rem;
+        padding-bottom: 0;
+        margin:0;
+        font-weight: bolder;
+        font-size: 4em;
+        color:white;
+        text-shadow: #000 1px 0 0px, #000 0 1px 0px, #000 -1px 0 0px, #000 0 -1px 0px;
+    }
+    .text{
+        padding:5rem;
+        padding-top: 0;
+        margin:0;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        color:white;
+        text-shadow: #000 1px 0 0px, #000 0 1px 0px, #000 -1px 0 0px, #000 0 -1px 0px;
+    }
+}
