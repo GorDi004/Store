@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Content from './components/Content/index'
 
 const App = () => {
-  const items = [
+  const [orders, setOrders] = useState([])
+  const [currentItems, setCurrentItems] = useState([]);
+  const [items] = useState([
     {
       id: 1,
       title: 'Стілець',
       urlImg: 'https://img.edilportale.com/product-thumbs/b_progetti-fashion-fur-easy-chair-giorgetti-333758-rel7e84753a.jpg',
       desc: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, nulla?',
-      category: 'chairs',
+      category: 'chair',
       price: '899.99'
     },
     {
@@ -59,10 +61,30 @@ const App = () => {
       category: 'table',
       price: '1129.99'
     },
-  ]
+  ])
+
+  const addToOrder = (item) => {
+    if (!orders.some((order) => order.id === item.id)) {
+      setOrders([...orders, item])
+    }
+  }
+
+  const deleteOrder = (id) => {
+    setOrders(orders.filter((order) => order.id !== id))  
+  }
+
+  const chooseCategory = (category) => {
+    // console.log(category)
+    if (category === "all") {
+      setCurrentItems(items);
+    } else {
+      setCurrentItems(items.filter((item) => item.category === category));
+    }
+  };
+
   return (
     <div className='App'>
-      <Content items={items}/>
+      <Content items={currentItems} onAdd={addToOrder} orders={orders} onDelete={deleteOrder} onChooseCategory={chooseCategory}/>
     </div>
   )
 }
